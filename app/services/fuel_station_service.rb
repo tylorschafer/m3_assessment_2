@@ -10,8 +10,10 @@ class FuelStationService
       location: location,
       format: 'json',
       fuel_type: 'ELEC',
-      api_key: ENV['NREL_API_KEY']
+      api_key: ENV['NREL_API_KEY'],
+      limit: 1
     }
+    json_response(search_params)
   end
 
   private
@@ -24,8 +26,9 @@ class FuelStationService
   end
 
   def conn
-    Faraday.new(url: 'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest') do |f|
-      f.adapter Faraday.default_adapter
+    Faraday.new(url:
+      'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest') do |f|
+        f.adapter Faraday.default_adapter
     end
   end
 end

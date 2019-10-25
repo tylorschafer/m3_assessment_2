@@ -1,6 +1,9 @@
 <section class='station'>
   <h3 class='name'><%= facade.name %></h3>
-  <p class='address'><%= facade.address %></p>
+  <section class='address'>
+    <p><%= facade.street %></p>
+    <p <%= facade.city %>, <%= facade.state %>, <%= facade.zip %></p>
+  </section>
   <p class='fuel-type'><%= facade.fuel_type %></p>
   <p class='distance'><%= facade.distance %></p>
   <p class='access-times'><%= facade.access_times %></p>
