@@ -1,12 +1,17 @@
 class SearchShow
 
-  def initialize(location)
-    @location = location
+  def initialize(origin)
+    @origin = origin
   end
 
   def station
-    nearest_station = FuelStationService.new(location).nearest_electic_station
+    nearest_station = FuelStationService.new(origin).nearest_electic_station
     Station.new(nearest_station)
+  end
+
+  def navigation
+    find_directions = GoogleDirectionsService.new(origin, station.street)
+    Navigation.new(find_directions)
   end
 
   def name
@@ -42,11 +47,11 @@ class SearchShow
   end
 
   def travel_time
-    'google api'
+    navigation.duration
   end
 
   def directions
-    'google api'
+    navigation.steps
   end
 
   private
