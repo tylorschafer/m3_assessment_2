@@ -11,6 +11,7 @@ class SearchShow
 
   def navigation
     find_directions = GoogleDirectionsService.new(origin, station.street)
+      .directions_to_address
     Navigation.new(find_directions)
   end
 
@@ -55,5 +56,5 @@ class SearchShow
   end
 
   private
-  attr_reader :location
+  attr_reader :origin
 end

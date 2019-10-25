@@ -10,7 +10,8 @@ class FuelStationService
       location: location,
       format: 'json',
       fuel_type: 'ELEC',
-      limit: 1
+      limit: 1,
+      api_key: ENV['NREL_API_KEY']
     }
     response = json_response(search_params)
     response['fuel_stations'][0]
@@ -22,7 +23,6 @@ class FuelStationService
     response = Faraday.get(
       'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest') do |f|
         f.params = params
-        f.params['api_key'] = ENV['NREL_API_KEY']
     end
     JSON.parse(response.body)
   end
