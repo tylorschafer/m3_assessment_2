@@ -1,7 +1,12 @@
 class SearchShow
 
-  def initialize(station)
-    @station = station
+  def initialize(location)
+    @location = location
+  end
+
+  def station
+    nearest_station = FuelStationService.new(location).nearest_electic_station
+    Station.new(nearest_station)
   end
 
   def name
@@ -33,5 +38,5 @@ class SearchShow
   end
 
   private
-  attr_reader :station
+  attr_reader :location
 end
