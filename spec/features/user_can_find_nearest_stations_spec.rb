@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe 'As a user' do
-  it 'I can see nearest stations' do
+  it 'I can see nearest station' do
     # As a user
     # When I visit "/"
     visit '/'
     # And I select "Turing" form the start location drop down (Note: Use the existing search form)
-    select 'Turing', from: 'Location'
+    select 'Turing', from: :location
     # And I click "Find Nearest Station"
     click_on 'Find Nearest Station'
     # Then I should be on page "/search"
