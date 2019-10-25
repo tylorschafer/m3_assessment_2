@@ -13,22 +13,17 @@ class FuelStationService
       api_key: ENV['NREL_API_KEY'],
       limit: 1
     }
-    json_response(search_params)
+    response = json_response(search_params)
+    response['fuel_stations'][0]
   end
 
   private
 
-  def json_response(params = {})
-    response = conn.get do |conn|
-      conn.params = params
+  def json_response(params)
+    response = Faraday.get(
+      'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest') do |f|
+        f.params = params
     end
     JSON.parse(response.body)
-  end
-
-  def conn
-    Faraday.new(url:
-      'https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest') do |f|
-        f.adapter Faraday.default_adapter
-    end
   end
 end
