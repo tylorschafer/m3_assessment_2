@@ -13,8 +13,20 @@ class SearchShow
     station.name
   end
 
-  def address
-    station.address
+  def street
+    station.street
+  end
+
+  def city
+    station.city
+  end
+
+  def state
+    station.state
+  end
+
+  def zip
+    station.zip
   end
 
   def fuel_type
@@ -30,11 +42,11 @@ class SearchShow
   end
 
   def travel_time
-    station.travel_time
+    'google api'
   end
 
   def directions
-    station.directions
+    'google api'
   end
 
   private

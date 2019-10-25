@@ -30,9 +30,9 @@ describe 'As a user' do
     # I should also see:
     # - the distance of the nearest station
     # - the travel time from Turing to that fuel station (should be 0.1 miles)
-    expect(page).to have_css('travel-time')
+    expect(page).to have_css('.travel-time')
     # - The HTML direction instructions to get to that fuel station
-    expect(page).to have_css('directions')
+    expect(page).to have_css('.directions')
     #   "Head <b>southeast</b> on <b>17th St</b> toward <b>Larimer St</b>"
 
   end
