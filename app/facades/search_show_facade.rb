@@ -1,4 +1,4 @@
-class SearchShow
+class SearchShowFacade
 
   def initialize(origin)
     @origin = origin
