@@ -14,7 +14,7 @@ describe Navigation do
 
     expect(navi).to be_a Navigation
     expect(navi.duration).to eq(params['duration'])
-    expect(navi.steps[0]).to eq(params['steps'][0])
-    expect(navi.steps[1]).to eq(params['steps'][1])
+    navi.load_steps
+    expect(navi.steps[0]).to eq("Head <b>southeast</b> on <b>17th St</b> toward <b>Larimer St</b>")
   end
 end
